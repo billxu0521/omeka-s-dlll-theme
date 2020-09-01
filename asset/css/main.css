@@ -1,0 +1,820 @@
+/* Applies to the entire page */
+body {
+    font-family: serif;
+    display: block;
+    margin: auto;
+
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(0,720,380)'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%23ffffff'/%3E%3C/linearGradient%3E%3Cpattern patternUnits='userSpaceOnUse' id='b' width='368' height='306.7' x='0' y='0' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.02'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect x='0' y='0' fill='url(%23b)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+/* background by SVGBackgrounds.com */
+}
+
+.text-heading a{
+    border-style: double;
+    border-width: 4px;
+    padding: 5px;
+    background: white;
+}
+
+.header-top{
+    height: 36px;
+    background-color: #535453;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    z-index: 9999;
+    color: white;
+    position: relative;
+    font-size: 28px;
+}
+#logo{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    cursor: pointer;
+    height: 20vh;
+    opacity: 0.8;
+    background-color: white;
+}
+.container{
+    color:#696969; 
+    width: 90vw;
+}
+
+#itemshowcontainer{
+  text-align: center;
+}
+
+.media.file .attachments{
+  margin: auto;
+}
+
+.text{
+  width: 50vw;
+  text-align: left;
+  margin: auto;
+}
+
+#showcontact{
+  font-size: 24px;
+}
+
+#ccstwlogo{
+  background-repeat: no-repeat;
+  background-size: 80%;
+  cursor: pointer;
+}
+
+.title a{
+  font-size: 20px;
+}
+#broswer_title{
+    width: 30vw;
+    margin: auto;
+    letter-spacing: 8px;
+}
+
+/* BYUI Logo */
+.logo{
+	margin-bottom: 30px;
+		
+}
+
+#backToTop {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 20px; /* Place the button at the bottom of the page */
+            right: 30px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: white; /* Set a background color */
+            color: black; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 5px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+            font-size: 28px; /* Increase font size */
+          }
+
+          #backToTop:hover {
+            background-color: #555; /* Add a dark-grey background on hover */
+            color: white;
+            transition: .2s;
+          }
+
+#user-bar{
+    height: 36px;
+}
+
+#top-search-container #search{
+    text-align: right;
+    position: absolute;
+    right: 10vw;
+    top: 135px;
+    z-index: 100;
+}
+
+#top-search-container #search input, #top-search-container #search .input-group-text{
+    border-radius: 0px;
+}
+
+.input-group-append{
+    background: #D9D9D9;
+}
+
+.values{
+    text-align: left;
+}
+
+.search-facet-item span a{
+    color: darkslategray !important;
+}
+
+.search-sidebar{
+    padding: 10% 0;
+}
+
+.search-results{
+    padding: 10% 0;
+}
+
+.row resource-list{
+    
+}
+
+/* Applies spacing to the slideshow and the logo */
+.margin-top{
+	padding-top: 40px;
+	margin-right: 20px;
+}
+input[type=text] {
+    width: 250px;
+}
+
+
+h1 {
+	font-size: 3rem;
+    
+}
+
+/*Applies to h2 classes*/
+.h2{
+    font-family: 'Merriweather', serif;
+    font-size: 2em;
+    padding-left: 80px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    letter-spacing: 3px;
+    
+}
+
+/*Applies to h3 classes*/
+.h3{
+   font-size: 1.7em;
+    padding-left: 80px;
+    text-transform: uppercase; 
+}
+
+/*Applies to h4 classes*/
+.h4{
+    font-size: 1.5em;
+    padding-left: 80px;
+    padding-top: 10px;
+}
+
+/*Side navigation bar*/
+.sub-menu ul.navigation{
+    padding-left: 0px;
+    font-size: 1.1em;
+}
+
+.sub-menu ul.navigation a{
+    color: #212529;
+}
+
+
+/*The second nav bar on an info page*/
+.nav-bar-2{
+    font-size: 1.4em;
+    letter-spacing: 2px;
+    padding-left: 40px;
+    
+}
+
+/*Blue buttons*/
+.button{
+    padding: 12px;
+}
+
+
+/*Related Links on an info page*/
+#float-right{
+    padding-right: 60px;
+}
+
+
+
+/*The Special Collections title*/
+
+.tagline-upper {
+    display: inline-block;
+    font-size: 2.3em;
+    font-weight: 100;
+    line-height: 1;
+    font-family: 'Merriweather', serif;
+    padding-left: 0px;
+    margin-top:0.5em;
+    letter-spacing: 3px;
+    vertical-align: middle;
+}
+
+.tagline-upper a{
+    color: rgb(33, 37, 41) !important;
+    text-decoration: none;
+}
+/*applies to all of the list style types in the site*/
+.blocks > li{
+	list-style-type: disc;
+}
+
+/*applies to a list when we want it to have bullet points - mainly infopage*/
+.li-bulletpoints{
+    list-style-type: inherit;
+}
+
+#license-citation-row{
+  font-size: 10px;
+}
+
+.resource-metadata h4 a{
+  color: darkslategray;
+}
+
+.search-view-type .search-view-type-list > i{
+  color: darkslategray;
+}
+
+/* The figure captions for the home page gallery  */
+.figure-caption{
+    background-color: #1A4893;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    color: white; 
+    margin-left: 55px;
+    margin-right:55px;
+    margin-top: -30px;
+    position: relative;
+    text-align: center;
+}
+
+/* The "search collections" link in the gallery homepage */
+.searchcollections{
+	font-family: 'Merriweather', serif;
+	font-size: 2em;
+	color: white;
+	background-color: #535453;
+	padding-top: 146px;
+	padding-bottom: 2px;
+	width: 300px;  
+}
+
+/* Makes the navigation text white #navcolor1-6*/
+
+.navbar-collapse > .navbar-nav > .nav-item:first-child{
+    display: none;
+}
+
+.navbar-light .navbar-nav .nav-link{
+	color: #696969;
+	font-size: 1.3em;
+        letter-spacing: 0.1em;
+}
+
+.navbar-light .navbar-nav .sub-link{
+    color: #4F4F4F;
+    display: inline-block;
+    font-size: 1.0em;
+    width: 100%;
+}
+
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .show>.nav-link{
+    color: #FFFFFF;
+    background: #878787;
+}
+
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .show.nav-item{
+    color: #FFFFFF;
+    background: #878787;
+}
+
+ul.dropdown-menu{
+    border-radius: 0px;
+}
+
+ul.dropdown-menu.show{
+    width: 250px;
+}
+
+ul.dropdown-menu li:click{
+    background-color: #696969;
+}
+
+ul.dropdown-menu li:hover{
+    background-color: #696969;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+ul.dropdown-menu li:hover > ul.dropdown-menu{
+    width: 250px !important;
+    display: block;
+    position: absolute;
+    left: 96%;
+    top: 5px;
+}
+
+ul.dropdown-menu .row{
+    width: 100%;
+    margin: 0;
+}
+
+.navbar-light .navbar-nav ul.dropdown-menu li.nav-item:hover > a.sub-link{
+    color: #FFFFFF;
+}
+
+.navbar-light .navbar-nav li.nav-item:hover {
+    background: #878787;
+}
+
+.navbar-light .navbar-nav li.nav-item:hover >a.nav-link{
+    color: #FFFFFF;
+    background: #878787;
+}
+
+#content .breadcrumbs{
+    text-align: left;
+}
+/*The blue box behind the navigation bar*/
+.bg-faded {
+
+}
+
+hr.divider {
+    border-color: #292b2c;
+    max-width: 250px;
+}
+
+.navdivider {
+    border-color: #292b2c;
+    max-width:200px;
+    margin-left:80px;
+ 
+}
+
+.navdivider2 {
+	border-color: #292b2c;
+	max-width:1500px;
+}
+
+/* Info Pages */
+.sidemenu{}
+div.sidemenu li a, div.sidemenu li a:visited{
+    color: #1A4893 !important;
+}
+.sidemenu h3{
+    border-bottom: 1px solid #000000;
+}
+.sidemenu ul{
+    list-style-type: none;
+    padding-left: 5px;
+}
+.header-image{
+    height: 300px;
+    width: auto;
+}
+
+.social-network-relationship{
+    height: 60vh;
+    width: 100%;
+}
+
+/*applies to the footer*/
+footer {
+  padding: 40px 0;
+  background-color:#535453;
+}
+
+footer div{
+  color: white ;
+}
+
+footer p{
+  color: white ;
+}
+
+/* Applies to the library.byui.edu link on the footer*/
+    .font-sm{
+	font-size: 1.2em;
+}
+
+
+/* Slideshow*/
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  color: white;
+}
+
+.slideshow-container .mySlides {
+    display: none;
+}
+
+/* Next & previous buttons for slideshow */
+.slideshow-container .prev, .slideshow-container .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  font-weight: bold;
+  font-size: 22px;
+
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.slideshow-container .next {
+  right: 18px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.slideshow-container .prev:hover, .next:hover {
+  background-color: #1A4893;
+}
+
+/* The dots/bullets/indicators for slideshow */
+.slideshow-container .dot {
+  cursor:pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #535453;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.slideshow-container .active, .dot:hover {
+  background-color: #1A4893;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+#link{
+    color: white;
+}
+
+header .navbar{
+    padding-bottom: 0px;
+    padding-top: 0px;
+    border-bottom: black;
+    border-bottom-style: double;
+}
+
+/* unvisited link */
+.navbar-nav a:link, footer a:link, .figure-caption a:link {
+    color: white;
+}
+
+/* visited link */
+.navbar-nav a:visited, footer a:visited, .figure-caption a:visited {
+    color: white;
+}
+
+/* mouse over link */
+.navbar-nav a:hover, footer a:hover, .figure-caption a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+/* selected link */
+.navbar-nav a:active, footer a:active, .figure-caption a:active {
+    color: white;
+}
+
+
+/*Links in a list on the website*/
+
+/* unvisited link */
+li a:link {
+    color: white;
+}
+
+/* visited link */
+li a:visited {
+    color: white;
+}
+
+/* mouse over link */
+li a:hover {
+    color: white;
+}
+
+/* selected link */
+li a:active {
+    color: red;
+}
+
+div li a{
+	font-size: 1.2em;
+    color: #1A4893;
+}
+
+div li a:link {
+    color: #1A4893;
+}
+
+/* visited link */
+div li a:visited {
+    color: #1A4893;
+}
+
+/* mouse over link */
+div li a:hover {
+    color: #1A4893;
+}
+
+/* selected link */
+div li a:active {
+    color: #1A4893;
+}
+
+
+.breadcrumbs a{
+    font-size: 1.2em;
+    color: #4F4F4F;
+}
+
+.breadcrumbs a:link {
+    color: #4F4F4F;
+}
+
+/* visited link */
+.breadcrumbs a:visited {
+    color: #4F4F4F;
+}
+
+/* mouse over link */
+.breadcrumbs a:hover {
+    color: #4F4F4F;
+}
+
+/* selected link */
+.breadcrumbs a:active {
+    color: #4F4F4F;
+}
+
+/* These links apply to the home page under "Explore further" */
+.black a:link {
+    color: #1A4893;
+}
+
+/* visited link */
+.black a:visited {
+    color: #1A4893;
+}
+
+/* mouse over link */
+.black a:hover {
+    color: #1A4893;
+}
+
+/* selected link */
+.black a:active {
+    color: #1A4893;
+}
+
+.black a{
+    font-size: 1.7em;
+}
+
+
+/*Library link on all pages in footer*/
+.library a{
+    font-size: 1.2em;
+    color: white;
+}
+
+div li a:link {
+    color: white;
+}
+
+
+nav.pagination{margin-bottom:30px;font-size:20px;line-height:45px}.pagination input{text-align:center}.resource-list+.pagination{border-color:transparent}.pagination form{min-width:90px}.pagination form,.pagination .button,.pagination button,.pagination .page-count{display:inline-block;vertical-align:top;height:45px}.pagination .button{width:45px;text-align:center;padding:7.5px;border-radius:2px;color:#ababab;line-height:30px;font-size: 28px}.pagination .button:hover{background-color:#E0E0E0}.pagination .inactive.button{opacity:.5;background-color:white}.pagination .inactive.button:hover{background-color:white}.pagination form,.pagination .last{margin-right:7.5px}.pagination input{width:60px}
+nav.pagination input[type="text"], input[type="password"], input[type="email"], input[type="url"], textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    height: 45px;
+    border: 1px solid #dedede;
+    padding: 6.5px 1.69492%;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0;
+    vertical-align: top;
+}
+
+.search-filters{
+    margin: 10px 0px;
+}
+
+.search-filters .filter-label{
+    font-weight: bold;
+}
+
+
+.search-filters .filter-value{
+    font-style: italic;
+}
+
+a.advanced-search{
+    color: #1A4893;
+}
+
+
+/* Item - Search Results */
+
+div.item.resource{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+div#content div.property a, div.item.resource .title a, div.item.resource .title a:visited{
+    color: #4F4F4F;
+    text-decoration: none;
+}
+div.item.resource .title a:hover{
+    color: black;
+    text-decoration: underline;
+}
+
+div.item.resource a img{
+    width: 18vw;
+    -webkit-filter: brightness(100%);
+    transition: .1s;
+}
+
+div.item.resource:hover img{
+    -webkit-filter: brightness(90%);
+    transition: .3s;
+    border-radius: 1px;
+}
+
+#content{
+    text-align: center;
+}
+
+.pagination li a{
+    color: #3C3C3C !important;
+}
+
+.page-item.active .page-link{
+    background: #dee2e6 !important;
+    border: 1px solid #dee2e6;
+}
+
+.row-count{
+    font-size: 24px;
+    color: #6C6C6C;
+}
+
+div#content .language{
+    background-color: #cccccc;
+    padding: 2px 4px;
+}
+
+#page-actions .button, #item-sets .button, #property-queries .button{
+    border: none;
+    color: #FFFFFF;
+}
+
+/*  Blocks */
+.blocks > h2{
+    margin-bottom: 20px;
+}
+
+/* Media Styles */
+.lSSlideWrapper{
+    height: 400px;
+}
+.lSSlideWrapper .media-render img{
+    height: 400px;
+}
+.media-render{
+    margin: 15px auto 0px;
+}
+.lSSlideOuter .lSPager.lSGallery{
+    margin: 10px auto 15px !important;
+}
+
+.meta-properties .property{
+    margin: 20px 0px;
+}
+
+.meta-properties {
+  max-height: 80vh;
+  overflow: auto;
+}
+
+
+/*Haven't had to use this yet*/
+/*tablet view/ ipad view*/
+@media screen and (min-device-width: 701px) and (max-device-width: 1024px) {
+
+	
+/*iPhone 5/ small devices */
+
+@media screen and (min-device-width: 320px) and (max-device-width: 374px) {
+
+}
+
+
+
+
+   
+
+}
+	
+	
+
+
+
+/* iPhone 6/7 & bigger mobile screen sizes */
+@media only screen and (min-device-width: 375px) and (max-device-width: 700px) {
+
+.tagline-upper {
+    display: inline-block;
+    font-size: 1.3em;
+    font-weight: 100;
+    line-height: 1;
+    font-family: 'Merriweather', serif;
+    padding-left: 0px;
+    margin-top:0.5em;
+    letter-spacing: 3px;
+    vertical-align: middle;
+}
+
+#top-search-container{
+    display: none;
+}
+
+.container {
+    width: 90vw;
+}
+
+div.item.resource a img{
+    width: 50vw;
+}
+
+ 
+	
+}
+
+
+/* iPad Pro and large screen sizes */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+
+
+
+
+	
+}
+
+	
+ 

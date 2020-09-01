@@ -1,0 +1,74 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-faded">
+
+    <div class="container">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+
+            <ul class="navbar-nav mx-auto">
+                <?php foreach ($this->container as $page) { ?>
+                    <?php /* @var $page Zend\Navigation\Page\Mvc */ ?>
+                    <?php // when using partials we need to manually check for ACL conditions ?>
+                    <?php if (!$page->isVisible() || !$this->navigation()->accept($page)) { continue; } ?>
+                    <?php $hasChildren = $page->hasPages(); ?>
+                    <?php if (!$hasChildren) { ?>
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="<?php echo $page->getHref() ?>">
+                                <?php echo $this->translate($page->getLabel()) ?>
+                            </a>
+                        </li>
+                    <?php } else { ?>
+                        <li class="nav-item dropdown px-lg-4 ">
+                            <a href="#" class="nav-link text-uppercase text-expanded" data-toggle="dropdown"><?php echo $this->translate($page->getLabel()) ?></a>
+                            <ul class="dropdown-menu container">
+                                <div class="row justify-content-start">
+                                <?php foreach ($page->getPages() as $child) { ?>
+                                    <?php // when using partials we need to manually check for ACL conditions ?>
+                                    <?php if(!$child->isVisible() || !$this->navigation()->accept($child)) { continue; } ?>
+                                    <li class="nav-item px-lg-4 py-lg-2 col-6">
+                                        <a class="sub-link" href="<?php echo $child->getHref() ?>">
+                                            <?php echo $this->translate($child->getLabel()) ?>
+                                        </a>
+                                        <?php $hasChildren = $child->hasPages(); ?>
+                                        <?php if ($hasChildren) { ?>
+                                            <ul class="dropdown-menu">
+                                                <?php foreach ($child->getPages() as $subchild) { ?>
+                                                    <?php // when using partials we need to manually check for ACL conditions ?>
+                                                    <?php if(!$subchild->isVisible() || !$this->navigation()->accept($subchild)) { continue; } ?>
+                                                    <li class="nav-item px-lg-4 py-lg-2">
+                                                        <a class="sub-link" href="<?php echo $subchild->getHref() ?>">
+                                                            <?php echo $this->translate($subchild->getLabel()) ?>
+                                                        </a>
+                                                        <?php $hasChildren = $subchild->hasPages(); ?>
+                                                        <?php if ($hasChildren) { ?>
+                                                            <ul class="dropdown-menu ">
+                                                                <?php foreach ($subchild->getPages() as $subsubchild) { ?>
+                                                                    <?php // when using partials we need to manually check for ACL conditions ?>
+                                                                    <?php if(!$subsubchild->isVisible() || !$this->navigation()->accept($subsubchild)) { continue; } ?>
+                                                                    <li class="nav-item px-lg-4 py-lg-2 ">
+                                                                        <a class="sub-link" href="<?php echo $subsubchild->getHref() ?>">
+                                                                            <?php echo $this->translate($subsubchild->getLabel()) ?>
+                                                                        </a>
+                                                                    </li>
+                                                                <?php } ?>
+                                                            </ul>
+                                                        <?php } ?>
+                                                    </li>
+                                                <?php } ?>
+                                            </ul>
+                                        <?php } ?>
+                                    </li>
+                                <?php } ?>
+                                </div>
+                            </ul>
+                        </li>
+                    <?php } ?>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+</nav>

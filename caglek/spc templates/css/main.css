@@ -1,0 +1,420 @@
+/* Applies to the entire page */
+body {
+font-family: "Open Sans", Helvetica, Arial, sans-serif;
+display: block;
+margin: auto;
+}
+
+
+/* BYUI Logo */
+.logo{
+	margin-bottom: 30px;
+		
+}
+
+/* Applies spacing to the slideshow and the logo */
+.margin-top{
+	padding-top: 40px;
+	margin-right: 20px;
+}
+input[type=text] {
+    width: 250px;
+}
+
+
+h1 {
+	font-size: 3rem;
+    
+}
+
+/*Applies to h2 classes*/
+.h2{
+    font-family: 'Merriweather', serif;
+    font-size: 2em;
+    padding-left: 80px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    letter-spacing: 3px;
+    
+}
+
+/*Applies to h3 classes*/
+.h3{
+   font-size: 1.7em;
+    padding-left: 80px;
+    text-transform: uppercase; 
+}
+
+/*Applies to h4 classes*/
+.h4{
+    font-size: 1.5em;
+    padding-left: 80px;
+    padding-top: 10px;
+}
+
+/*Side navigation bar*/
+.sidenav{
+    padding-left: 80px;
+    font-size: 1.3em;
+}
+
+
+/*The second nav bar on an info page*/
+.nav-bar-2{
+    font-size: 1.4em;
+    letter-spacing: 2px;
+    padding-left: 40px;
+    
+}
+
+/*Blue buttons*/
+.button{
+    background-color: #1A4893;
+    padding: 12px;
+}
+
+
+/*Related Links on an info page*/
+#float-right{
+    padding-right: 60px;
+}
+
+
+
+/*The Special Collections title*/
+
+.tagline-upper { 
+	font-size: 2.3em;
+	font-weight: 100;
+	line-height: 1;
+    font-family: 'Merriweather', serif;
+    padding-left: 150px;
+    margin-top:-70px;
+    letter-spacing: 3px;
+
+}
+/*applies to all of the list style types in the site*/
+li{
+	list-style-type: none;
+}
+
+/*applies to a list when we want it to have bullet points - mainly infopage*/
+.li-bulletpoints{
+    list-style-type: inherit;
+}
+
+
+/* The figure captions for the home page gallery  */
+.figure-caption{
+    background-color: #1A4893;
+	padding-top: 15px;
+	padding-bottom: 10px;
+	color: white; 
+    margin-left: 55px;
+    margin-right:55px;
+    margin-top: -30px;
+    position: relative;
+  
+}
+
+/* The "search collections" link in the gallery homepage */
+.searchcollections{
+	font-family: 'Merriweather', serif;
+	font-size: 2em;
+	color: white;
+	background-color: #535453;
+	padding-top: 146px;
+	padding-bottom: 2px;
+	width: 300px;  
+}
+
+/* Makes the navigation text white #navcolor1-6*/
+#navcolor1{
+	color: white;
+	font-size: 1.3em;
+}
+#navcolor2{
+	color: white;
+	font-size: 1.3em;
+}
+#navcolor3{
+	color: white;
+	font-size: 1.3em;
+}
+#navcolor4{
+	color: white;
+	font-size: 1.3em;
+}
+#navcolor5{
+	color: white;
+	font-size: 1.3em;
+}
+#navcolor6{
+	color: white;
+	font-size: 1.3em;
+}
+
+/*The blue box behind the navigation bar*/
+.bg-faded {
+	background-color: #1A4893;
+
+}
+
+hr.divider {
+	border-color: #292b2c;
+	max-width: 250px;
+}
+
+.navdivider {
+	border-color: #292b2c;
+	max-width:200px;
+    margin-left:80px;
+ 
+}
+
+.navdivider2 {
+	border-color: #292b2c;
+	max-width:1500px;
+   
+ 
+}
+
+/*applies to the footer*/
+footer {
+  color: white;
+  padding: 40px 0;
+  background-color:#535453;
+}
+/* Applies to the library.byui.edu link on the footer*/
+    .font-sm{
+	font-size: 1.2em;
+}
+
+
+/* Slideshow*/
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  color: white;
+}
+
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons for slideshow */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  font-weight: bold;
+  font-size: 22px;
+
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 18px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: #1A4893;
+}
+
+/* The dots/bullets/indicators for slideshow */
+.dot {
+  cursor:pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #535453;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #1A4893;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+#link{
+	color: white;
+}
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: black;
+}
+
+/* selected link */
+a:active {
+    color: white;
+}
+
+
+/*Links in a list on the website*/
+
+/* unvisited link */
+li a:link {
+    color: white;
+}
+
+/* visited link */
+li a:visited {
+    color: white;
+}
+
+/* mouse over link */
+li a:hover {
+    color: white;
+}
+
+/* selected link */
+li a:active {
+    color: red;
+}
+
+div li a{
+	font-size: 1.2em;
+    color: color: #1A4893;
+}
+
+div li a:link {
+    color: #1A4893;
+}
+
+/* visited link */
+div li a:visited {
+    color: #1A4893;
+}
+
+/* mouse over link */
+div li a:hover {
+    color: #1A4893;
+}
+
+/* selected link */
+div li a:active {
+    color: #1A4893;
+}
+
+
+
+
+
+/* These links apply to the home page under "Explore further" */
+.black a:link {
+    color: #1A4893;
+}
+
+/* visited link */
+.black a:visited {
+    color: #1A4893;
+}
+
+/* mouse over link */
+.black a:hover {
+    color: #1A4893;
+}
+
+/* selected link */
+.black a:active {
+    color: #1A4893;
+}
+
+.black a{
+	font-size: 1.7em;
+}
+
+
+/*Library link on all pages in footer*/
+.library a{
+	font-size: 1.2em;
+    color: white;
+}
+
+div li a:link {
+    color: white;
+}
+
+
+/*Haven't had to use this yet*/
+/*tablet view/ ipad view*/
+@media screen and (min-device-width: 701px) and (max-device-width: 1024px) {
+
+	
+/*iPhone 5/ small devices */
+
+@media screen and (min-device-width: 320px) and (max-device-width: 374px) {
+
+}
+
+
+
+
+   
+
+}
+	
+	
+
+
+
+/* iPhone 6/7 & bigger mobile screen sizes */
+@media only screen and (min-device-width: 375px) and (max-device-width: 700px) {
+
+	
+
+ 
+	
+}
+
+
+/* iPad Pro and large screen sizes */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+
+
+
+
+	
+}
+
+	
+ 

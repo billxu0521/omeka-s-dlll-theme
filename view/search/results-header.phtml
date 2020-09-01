@@ -1,0 +1,33 @@
+<?php
+/**
+ * @var \Zend\View\Renderer\PhpRenderer $this
+ * @var \Search\Query $query
+ * @var \Search\Response $response
+ * @var array $sortOptions
+ */
+
+$translate = $this->plugin('translate');
+$assetUrl = $this->plugin('assetUrl');
+
+// Note: urls are managed by js.
+// TODO Use $this->sortLink()?
+$links = [];
+$labels = [];
+foreach ($sortOptions as $name => $label):
+    @list($field, $direction) = explode(' ', $name, 2);
+    $links[$field][] = [
+        'direction' => $direction,
+        'name' => $name,
+        'active' => ($query->getSort() === $name),
+        'label' => $label,
+    ];
+    $labels[$field] = $translate($label);
+endforeach;
+?>
+<div class="search-results-header">
+    
+    <div>
+        <a class="search-view-type search-view-type-grid" href="#"></a>
+
+    </div>
+</div>

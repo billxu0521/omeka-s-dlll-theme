@@ -1,0 +1,59 @@
+nav.pagination {
+  margin-bottom: $spacing-l;
+  font-size: $base-font-size;
+  line-height: 1.5 * $base-line-height;
+}
+
+.pagination input {
+  text-align: center;
+}
+
+.resource-list + .pagination {
+  border-color: transparent;
+}
+
+.pagination form {
+  min-width: 3 * $spacing-l;
+}
+
+.pagination form,
+.pagination .button,
+.pagination button,
+.pagination .page-count {
+  display: inline-block;
+  vertical-align: top;
+  height: 1.5 * $base-line-height;
+}
+
+.pagination .button {
+  border: 1px solid $light;
+  background-color: $light;
+  width: 1.5 * $spacing-l;
+  text-align: center;
+  padding: $spacing-s;
+  border-radius: 2px;
+  color: $gray;
+  line-height: $base-line-height;
+
+  &:hover {
+    background-color: $bold;
+  }
+}
+
+.pagination .inactive.button {
+  opacity: .5;
+  background-color: white;
+
+  &:hover {
+    background-color: white;
+  }
+}
+
+.pagination form,
+.pagination .last {
+  margin-right: $spacing-s;
+}
+
+.pagination input {
+  width: 2 * $spacing-l;
+}

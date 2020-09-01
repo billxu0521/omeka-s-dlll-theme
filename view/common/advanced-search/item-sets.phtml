@@ -1,0 +1,49 @@
+<?php
+// Prepare the item set queries
+$ids = isset($query['item_set_id']) ? $query['item_set_id'] : [];
+if (!is_array($ids)) {
+    $ids = [$ids];
+}
+$ids = array_filter($ids);
+if (!$ids) {
+    $ids = [null];
+}
+?>
+
+<div class="clearfix">&nbsp;</div>
+<div id="item-sets" class="field removable multi-value" role="group" aria-labelledby="by-item-set-label">
+
+
+    <div class="row">
+
+        <div class="col-md-3 field-meta">
+            <span id="by-item-set-label" class="label"><?php echo $this->translate('Search by item set'); ?></span>
+            <?php echo $this->hyperlink('', '#', ['class' => 'expand', 'title' => $this->translate('Expand')]); ?>
+            <small>
+                <div class="collapsible">
+                    <div class="field-description"><?php echo $this->translate('Searches for items that are assigned to any of these item sets.'); ?></div>
+                </div>
+            </small>
+
+        </div>
+
+        <div class="col-md-9 inputs">
+            <?php foreach ($ids as $id): ?>
+                <div class="value" style="margin-bottom: 8px;">
+                    <?php echo $this->itemSetSelect([
+                        'name' => 'item_set_id[]',
+                        'attributes' => ['value' => $id],
+                    ]); ?>
+                    &nbsp;
+                    <button type="button" class="o-icon-delete remove-value button"></button>
+                </div>
+            <?php endforeach; ?>
+            <div class="clearfix">&nbsp;</div>
+            <a href="#" class="add-value button" style="display: inline-block;"><?php echo $this->translate('Add new item set'); ?></a>
+        </div>
+
+    </div>
+
+
+</div>
+

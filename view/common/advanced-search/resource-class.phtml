@@ -1,0 +1,26 @@
+<?php
+// Prepare the resource class query.
+if (isset($query['resource_class_id'])) {
+    $resourceClassId = $query['resource_class_id'] ;
+} else {
+    $resourceClassId = null;
+}
+?>
+<div class="field">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="field-meta">
+                <label for="resource_class_id"><?php echo $this->translate('Search by class'); ?></label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="inputs">
+                <?php echo $this->resourceClassSelect([
+                    'name' => 'resource_class_id',
+                    'attributes' => ['id' => 'resource_class_id', 'value' => $resourceClassId, 'style' => 'min-height: 48.2px;']
+                ]); ?>
+            </div>
+        </div>
+    </div>
+
+</div>

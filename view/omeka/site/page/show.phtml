@@ -1,0 +1,61 @@
+
+<?php
+$this->htmlElement('body')->appendAttribute('class', 'page');
+$this->pageTitle($page->title(), 2);
+?>
+
+
+<?php
+$nav = $site->publicNav();
+$container = $nav->getContainer();
+$activePage = $nav->findActive($container);
+if ($activePage):
+?>
+
+    <?php if ($activePage['depth'] !== 0): ?>
+    <div class="clearfix">&nbsp;</div>
+    <nav class="breadcrumbs"><?php echo $nav->breadcrumbs(); ?></nav>
+    <div class="clearfix">&nbsp;</div>
+    <?php endif; ?>
+<?php endif; ?>
+
+
+<div class="container">
+    <div class="row">
+
+        <?php $this->trigger('view.show.before'); ?>
+
+        <?php if (($activePage) && $this->displayNavigation && $activePage['page']->hasPages()): ?>
+
+            <!--<div class="col-md-3">
+                <div style="text-transform: uppercase; font-size: 1.3em; font-weight: bold; margin-left: -10px;"><?php /*echo $page->title(); */?></div>
+                <nav class="sub-menu"><?php /*echo $nav->menu()->renderSubMenu(); */?></nav>
+            </div>-->
+
+            <div class="col-md-12">
+                <div class="blocks">
+                    <?php echo $this->content; ?>
+                </div>
+            </div>
+        <?php else: ?>
+            <div class="col-md-12">
+                <div class="blocks">
+                    <?php echo $this->content; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php $this->trigger('view.show.after'); ?>
+
+    </div>
+
+    <?php echo $this->sitePagePagination(); ?>
+    
+</div>
+
+
+
+
+
+
+

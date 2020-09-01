@@ -1,0 +1,27 @@
+<?php
+// Prepare the site query.
+if (isset($query['site_id'])) {
+    $siteId = $query['site_id'] ;
+} else {
+    $siteId = null;
+}
+?>
+<div class="clearfix">&nbsp;</div>
+<div class="field">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="field-meta">
+                <label for="site_id"><?php echo $this->translate('In site pool'); ?></label>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="inputs">
+                <?php echo $this->siteSelect([
+                    'name' => 'site_id',
+                    'attributes' => ['id' => 'site_id', 'value' => $siteId, 'style' => 'min-height: 48.2px; width: 352px;']
+                ]); ?>
+            </div>
+        </div>
+    </div>
+
+</div>

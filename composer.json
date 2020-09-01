@@ -1,0 +1,7 @@
+{
+    "name": "jonfackrell/byui-spc",
+    "type": "omeka-s-theme",
+    "require": {
+        "omeka/omeka-s": "*"
+    }
+}

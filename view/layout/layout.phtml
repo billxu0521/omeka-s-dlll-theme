@@ -1,0 +1,198 @@
+<?php
+$escape = $this->plugin('escapeHtml');
+$this->htmlElement('html')->setAttribute('lang', $this->lang());
+$this->headMeta()->setCharset('utf-8');
+$this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
+$this->headTitle($this->setting('installation_title', 'Omeka S'))->setSeparator(' · ');
+
+$this->headScript()->prependFile($this->assetUrl('js/spc.js'));
+$this->headScript()->prependFile($this->assetUrl('js/bootstrap.bundle.min.js'));
+$this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
+$this->headScript()->prependFile($this->assetUrl('js/jquery.min.js'));
+
+$this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css'));
+$this->headLink()->prependStylesheet($this->assetUrl('css/main.css'));
+$this->headLink()->prependStylesheet($this->assetUrl('css/bootstrap.min.css'));
+$this->headLink()->prependStylesheet($this->assetUrl('css/all.css'));
+
+
+$this->trigger('view.layout');
+//$userBar = $this->partial('common/user-bar', ['site' => $site]);
+
+?>
+<?php echo $this->doctype(); ?>
+<?php echo $this->htmlElement('html'); ?>
+    <head>
+        <?php echo $this->headMeta(); ?>
+        <?php echo $this->headTitle(); ?>
+        <?php echo $this->headLink(); ?>
+        <?php echo $this->headStyle(); ?>
+        <?php echo $this->headScript(); ?>
+        <style>
+            ul.navbar-nav > li{margin-left: auto!important; margin-right: auto!important;}
+            div li a:visited {
+                color: #ffffff;
+            }
+            footer{
+                /*background-color: <?php echo $this->themeSetting('primary_color'); ?>;*/
+            }
+        </style>
+    </head>
+
+    <?php echo $this->htmlElement('body'); ?>
+
+
+        <div id="branding" class="container-fluid">
+            <div class="container">
+
+                <div class="row responsive">
+                    <div class="col-md" style="text-align: center;">
+                        <div class="tagline-upper text-heading text-black" >
+                            <a href="/s/malaysiaperson/page/home">
+                                馬來西亞興化群賢錄
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="clearfix">&nbsp;</div>
+        <div class="container-fluid" style="padding: 0px;">
+            <header>
+                <?php
+                    echo $site->publicNav()->menu()->setPartial('partials/menu')->render();
+                ?>
+            </header>
+            <div class="container-fluid">
+                <div class="container">
+                    <div id="content" role="main">
+                        <div id="top-search-container">
+                            <div id="search">
+                                <form action="/s/malaysiaperson/solr" id="search-form" _lpchecked="1">
+                                    <div class="input-group">
+                                        <input class="form-control py-2 border-right-0 border" type="search" name="q" id="q" value="" placeholder="站內搜尋">
+                                        <span class="input-group-append">
+                                            <button type="submit" class="input-group-text bg-transparent">
+                                            <div >
+                                                <i class="fa fa-search"></i>
+                                            </div>
+                                        </button>
+                                    </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <?php echo $this->content; ?>
+                    </div>
+                </div>
+            </div>
+            <button onclick="topFunction()" id="backToTop" title="Go to top"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+
+            <div class="container-fluid" style="padding: 0px;">
+                <!-- Footer -->
+                <footer>
+                    <div class="container">
+                        <div class="list-inline row">
+                            <div class="movetop text-hide col-md-7 " id="ccstwlogo" onclick="window.open('http://www.ccstw.nccu.edu.tw/','mywindow');"" style="color: #ffffff; background-image: url('<?php echo $this->assetUrl('img/ccstwlogo.png'); ?>')">華人文化主體性中心</div>
+                            <div id="license-citation-row" class="col-md-5">
+                                <p><a href="http://ccstwlib.ccstw.nccu.edu.tw/s/malaysiaperson/page/privacypolicy">隱私權政策聲明</a></p>
+                                <i class="fab fa-creative-commons fa-2x ml-2 mr-2"></i>
+                                <i class="fab fa-creative-commons-by fa-2x ml-2 mr-2"></i>
+                                <i class="fab fa-creative-commons-nc fa-2x ml-2 mr-2"></i>
+                                <i class="fab fa-creative-commons-nd fa-2x ml-2 mr-2"></i>
+                                <p>除另有註明，本網站之內容皆採用<br>
+                                <a href="https://creativecommons.org/licenses/by-sa/3.0/tw/">創用CC 姓名標示-相同方式分享 3.0 台灣</a>授權條款
+                                </p>
+                            </div>  
+                        </div>  
+                        <div id="showcontact"> Contact </div>
+                        <div class="list-inline row">
+                            <div class="col-md-4">
+                                <div>+886 02 2939-3091 #69325</div>
+                                <div> nccuccs@gmail.com </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div> 台北市文山區指南路二段64號 國立政治大學 - 研究暨創新育成總中心 350325 室</div>
+                                <div> NO.64,Sec.2,ZhiNan Rd.,Wenshan District,Taipei City 11605,Taiwan (R.O.C) - Research and Innovation-incubation Center（NCCU RIIC） Room 350325</div>
+                            </div>
+                        </div>
+                        <p class="copyright small float-none">Copyright &copy; 2020</p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+  
+        <script>
+            mybutton = document.getElementById("backToTop");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+              if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+              } else {
+                mybutton.style.display = "none";
+              }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+              document.body.scrollTop = 0; // For Safari
+              document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            }
+            
+            var slideIndex = Math.floor(Math.random()*3) + 1;
+
+            $(function(){
+                if($(".mySlides").length > 0){
+                    showSlides(slideIndex);
+                }
+
+                // Show submenus
+            });
+
+            // Next/previous controls
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            // Thumbnail image controls
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " active";
+            }
+        </script>
+
+        <!-- Clicky Analytics Tracking Code -->
+        <script type="text/javascript">
+            var clicky_site_ids = clicky_site_ids || [];
+            clicky_site_ids.push(100745117);
+            (function() {
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = '//static.getclicky.com/js';
+                ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+            })();
+        </script>
+        <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100745117ns.gif" /></p></noscript>
+
+    </body>
+</html>

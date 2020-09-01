@@ -1,0 +1,71 @@
+<?php
+/**
+ * @var \Zend\View\Renderer\PhpRenderer $this
+ * @var array $query
+ * @var int $totalCount
+ * @var int $currentPage
+ * @var int $pageCount
+ * @var string $previousPageUrl
+ * @var string $nextPageUrl
+ */
+
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+$assetUrl = $this->plugin('assetUrl');
+?>
+<nav class="pagination" role="navigation">
+<?php if ($totalCount): ?>
+    <?php
+    $pages = [$currentPage];
+    $p = $currentPage - 1;
+    $count = 0;
+    while ($p >= 1 && $count < 4) {
+        array_unshift($pages, $p);
+        ++$count;
+        --$p;
+    }
+
+    $p = $currentPage + 1;
+    $count = 0;
+    while ($p <= $pageCount && $count < 4) {
+        array_push($pages, $p);
+        ++$count;
+        ++$p;
+    }
+    ?>
+
+    <?php if ($currentPage > 1): ?>
+        <span class="page previous">
+            <a href="<?= $escape($previousPageUrl) ?>" title="<?= $translate('Previous') ?>">
+                <img src="<?= $assetUrl('img/previous.svg') ?>"/>
+            </a>
+        </span>
+    <?php endif; ?>
+
+    <?php foreach ($pages as $page): ?>
+        <?php $q = array_merge($query, ['page' => $page]); ?>
+        <span class="page <?= $page == $currentPage ? 'active' : '' ?>">
+            <?php if ($page != $currentPage): ?>
+                <a href="<?= $escape($this->url(null, [], ['query' => $q], true)) ?>"><?= $page ?></a>
+            <?php else: ?>
+                <span><?= $page ?></span>
+            <?php endif; ?>
+        </span>
+    <?php endforeach; ?>
+
+    <?php if ($currentPage < $pageCount): ?>
+        <span class="page next">
+            <a href="<?= $escape($nextPageUrl) ?>" title="<?= $translate('Next') ?>">
+                <img src="<?= $assetUrl('img/next.svg') ?>"/>
+            </a>
+        </span>
+    <?php endif; ?>
+    <?php /* ?>
+    <div>
+        <span class="row-count"><?= sprintf($translate('[Total: %s]'), $totalCount) ?></span>
+    </div>
+    <?php */ ?>
+<?php else: ?>
+    <?= $translate('No resources.') ?>
+<?php endif; ?>
+</nav>

@@ -1,0 +1,45 @@
+<?php
+$escape = $this->plugin('escapeHtml');
+$labelInfo = $this->setting('property_label_information');
+?>
+<table class="table table-striped table">
+    <?php foreach ($values as $term => $propertyData): ?>
+        <tr>
+            <td class="property">
+                <h6>
+                <?php if ($propertyData['alternate_label']): ?>
+                <?php echo $escape($propertyData['alternate_label']); ?>
+                <?php else: ?>
+                <?php echo $escape($this->translate($propertyData['property']->label())); ?>
+                <?php endif; ?>
+                <?php if ('term' === $labelInfo): ?>
+                <span class="field-term">(<?php echo $escape($propertyData['property']->term()); ?>)</span>
+                <?php elseif ('vocab' === $labelInfo): ?>
+                <span class="field-term">(<?php echo $escape($propertyData['property']->vocabulary()->label()); ?>)</span>
+                <?php endif; ?>
+                </h6>
+            </td>
+            <td>
+                <div class="values">
+                <?php foreach ($propertyData['values'] as $value): ?>
+                    <?php
+                    $class = 'value';
+                    if ('resource' == $value->type()) {
+                        $valueResource = $value->valueResource();
+                        $class .= ' resource ' . $escape($valueResource->resourceName());
+                    } elseif ('uri' == $value->type()) {
+                        $class .= ' uri';
+                    }
+                    ?>
+                    <div class="<?php echo $class; ?>" lang="<?php echo $escape($value->lang()); ?>">
+                        <?php if ($language = $value->lang()): ?>
+                        <span class="language"><?php echo $language; ?></span>
+                        <?php endif; ?>
+                        <?php echo $value->asHtml(); ?>
+                    </div>
+                <?php endforeach; ?>
+                </div>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>

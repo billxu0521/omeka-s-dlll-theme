@@ -1,0 +1,49 @@
+<?php
+$translate = $this->plugin('translate');
+?>
+<?php $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?>
+<?php $parts = parse_url($actual_link);?>
+<?php parse_str($parts['query'], $query);?>
+<?php if(empty($query['per_page'])){
+    $per_page = 25;
+}else{
+    $per_page = $query['per_page'];
+}
+
+?>
+<span class="row-count"><?php echo $totalCount?><?php echo sprintf($translate('Items')); ?> 
+</span>
+<nav  role="navigation"> 
+<?php if ($totalCount): ?>
+    <ul class="pagination justify-content-center">
+        <li class="page-item">
+        <?php if ($currentPage != 1): ?>
+        <?php echo $this->hyperlink('', $previousPageUrl, ['class' => 'previous o-icon-prev button', 'title' => $translate('Previous'), 'aria-label' => $translate('Previous')]); ?>
+        <?php else: ?>
+            <span class="previous o-icon-prev button inactive "></span>
+        <?php endif; ?>
+        </li>
+        <?php for ( $i=1 ; $i <= $pageCount ; $i++ ):?>
+        <?php if($currentPage == $i):?>
+        <li class="page-item active"><a class="page-link" href="/s/malaysiaperson/item??sort_by=pageStart&sort_order=asc&page=<?php echo $i;?>&per_page=<?php echo $per_page;?>&sort_by=created"><?php echo $i;?></a></li>
+        <?php else: ?>
+        <li class="page-item"><a class="page-link" href="/s/malaysiaperson/item??sort_by=pageStart&sort_order=asc&page=<?php echo $i;?>&per_page=<?php echo $per_page;?>&sort_by=created"><?php echo $i;?></a></li>
+        <?php endif; ?>
+        <?php endfor; ?>
+        <li class="page-item">
+        <?php if ($currentPage < $pageCount): ?>
+        <?php echo $this->hyperlink('', $nextPageUrl, ['class' => 'next o-icon-next button', 'title' => $translate('Next'), 'aria-label' => $translate('Next')]); ?>
+        <?php else: ?>
+            <span class="next o-icon-next button inactive "></span>
+        <?php endif; ?>
+        </li>
+    </ul>
+    
+    <?php
+    $from = $offset + 1;
+    $to = ($currentPage < $pageCount) ? $offset + $perPage : $totalCount;
+    ?>
+<?php else: ?>
+    <?php echo $translate('0 results'); ?>
+<?php endif; ?>
+</nav>

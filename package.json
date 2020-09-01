@@ -1,0 +1,35 @@
+{
+  "name": "byui-spc",
+  "version": "1.0.0",
+  "description": "A theme for Omeka S.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonfackrell/byui-spc.git"
+  },
+  "keywords": [
+    "omeka-s",
+    "theme"
+  ],
+  "author": "jonfackrell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonfackrell/byui-spc/issues"
+  },
+  "homepage": "https://github.com/jonfackrell/byui-spc#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.4.0",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.1.1",
+    "gulp-sass": "^3.1.0",
+    "susy": "^2.2.12"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.9"
+  }
+}

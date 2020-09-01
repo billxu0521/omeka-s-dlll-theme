@@ -1,0 +1,46 @@
+<?php
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+?>
+<?php $currentQuery = $this->params()->fromQuery(); ?>
+<div class="browse-sort">
+    <span><?php echo $translate('Sort mode'); ?></span>
+    <?php // SortSelector takes sortByHeading and outputs it as sortBy. ?>
+    <?php foreach($sortBy as $sortByHeading): ?>
+        <?php
+        $query = $currentQuery;
+        $isActive = $sortByQuery === $sortByHeading['value'];
+        if ($isActive):
+            $isActiveAsc = $sortOrderQuery === 'asc';
+            $isActiveDesc = !$isActiveAsc;
+            $query['sort_order'] = $isActiveAsc ? 'desc' : 'asc';
+        else:
+            $isActiveAsc = false;
+            $isActiveDesc = false;
+            $query['sort_by'] = $sortByHeading['value'];
+            $query['sort_order'] = 'asc';
+        endif;
+        $queryAsc = $query;
+        $queryAsc['sort_order'] = 'asc';
+        $queryDesc = $query;
+        $queryDesc['sort_order'] = 'desc';
+        ?>
+        <div class="sort-field">
+            <a href="<?php echo $this->url('site/resource', [], ['query' => $query], true); ?>">
+                <span class="sort-label"><?php echo $sortByHeading['label']; ?></span>
+            </a>
+            <div class="sort-directions">
+                <a href="<?php echo $this->url('site/resource', [], ['query' => $queryAsc], true); ?>">
+                    <div class="sort-direction sort-asc<?php if ($isActiveAsc): ?> sort-active<?php endif; ?>" data-name="<?php echo $sortByHeading['label']; ?>">
+                        <img src="<?php echo $this->assetUrl('img/sort-asc.svg'); ?>" />
+                    </div>
+                </a>
+                <a href="<?php echo $this->url('site/resource', [], ['query' => $queryDesc], true); ?>">
+                    <div class="sort-direction sort-desc<?php if ($isActiveDesc): ?> sort-active<?php endif; ?>" data-name="<?php echo $sortByHeading['label']; ?>">
+                        <img src="<?php echo $this->assetUrl('img/sort-desc.svg'); ?>" />
+                    </div>
+                </a>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>

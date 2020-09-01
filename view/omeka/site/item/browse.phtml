@@ -1,0 +1,26 @@
+<?php $escape = $this->plugin('escapeHtml');?>
+<?php $this->htmlElement('body')->appendAttribute('class', 'item resource browse');
+$query = $this->params()->fromQuery(); ?>
+<?php if (isset($itemSet)): ?>
+<?php $this->htmlElement('body')->appendAttribute('class', 'item-set');
+    $query['item_set_id'] = $itemSet->id(); ?>
+<?php endif; ?>
+<?php usort($items, function($a, $b) {return strcmp($a->value('bibo:pageStart'), $b->value('bibo:pageStart'));});?>
+<div class="clearfix">&nbsp;</div>
+<?php echo $this->breadcrumbs();?>
+<div class="clearfix">&nbsp;</div>
+<div id="broswer_title"><h2>瀏覽群賢錄</h2></div>
+
+<?php echo $this->pagination(); ?>
+<div class="row resource-list">
+    <?php foreach ($items as $item): ?>
+    <div class="col-md-4 item resource">
+        <?php if ($primaryMedia = $item->primaryMedia()): ?>
+        <?php echo $item->linkRaw($this->thumbnail($primaryMedia, 'large')); ?>
+        <?php endif; ?>
+        <div class="title"><?php echo $item->link($item->displayTitle()); ?></div>        
+    </div>
+    <?php endforeach; ?>
+</div>
+<?php echo $this->pagination(); ?>
+

@@ -1,0 +1,226 @@
+<?php
+$escape = $this->plugin('escapeHtml');
+$this->htmlElement('body')->appendAttribute('class', 'item resource show');
+$this->headScript()->prependFile($this->assetUrl('js/lightslider.min.js'));
+$this->headScript()->prependFile($this->assetUrl('js/lightgallery.min.js'));
+$this->headScript()->prependFile($this->assetUrl('js/social_network_relationship.js'));
+$this->headScript()->prependFile($this->assetUrl('js/d3.v4.min.js'));
+
+$this->headLink()->prependStylesheet($this->assetUrl('css/lightgallery.min.css'));
+$this->headLink()->prependStylesheet($this->assetUrl('css/lightslider.min.css'));
+$this->headLink()->prependStylesheet($this->assetUrl('css/social_network_relationship.css'));
+
+$lightMedia = [];
+$otherMedia = [];
+$id = $item->id();
+foreach ($item->media() as $media) {
+    $mediaType = $media->mediaType();
+    $mediaRenderer = $media->renderer();
+    if ((strpos($mediaType, 'image') !== false) || (strpos($mediaRenderer, 'youtube') !== false)) {
+        $lightMedia[] = $media;
+    } else {
+        $otherMedia[] = $media;
+    }
+}
+?>
+
+<div class="clearfix">&nbsp;</div>
+<?php echo $this->breadcrumbs();?>
+<?php echo $this->pageTitle($item->displayTitle(), 2); ?>
+
+<?php $this->trigger('view.show.before'); ?>
+<?php if (count($lightMedia) > 0): ?>
+<ul id="itemfiles" class="media-list">
+    <?php foreach ($lightMedia as $media): ?>
+        <?php $source = ($media->originalUrl()) ? $media->originalUrl() : $media->source(); ?>
+        <li data-src="<?php echo $source; ?>" data-thumb="<?php echo $escape($media->thumbnailUrl('medium')); ?>" class="media resource">
+            <?php echo $media->render(); ?>
+        </li>
+    <?php endforeach; ?>
+</ul>
+<?php endif; ?>
+
+<?php 
+$keywords = $item->value('bio:keywords',['all' => true]); 
+echo '<div id="keywords">關鍵字:';
+foreach ($keywords as $keyword):
+    echo '&nbsp;';
+    echo '<a href=/s/malaysiaperson/item?Search=&property[0][property]=187&property[0][type]=eq&property[0][text]='.$keyword.'>'.$keyword.'</a>';
+endforeach;   
+echo '</div>';
+
+?>
+<!---->
+<?php //echo $item->displayValues(); ?>
+<!---->
+<?php $this->trigger('view.show.after'); ?>
+
+<!---->
+<?php //$itemSets = $item->itemSets(); ?>
+<?php //if (count($itemSets) > 0): ?>
+<!--<div class="property">-->
+<!--    <h4>--><?php //echo $this->translate('Item sets'); ?><!--</h4>-->
+<!--    --><?php //foreach ($item->itemSets() as $itemSet): ?>
+<!--    <div class="value"><a href="--><?php //echo $escape($itemSet->url()); ?><!--">--><?php //echo $itemSet->displayTitle(); ?><!--</a></div>-->
+<!--    --><?php //endforeach; ?>
+<!--</div>-->
+<?php //endif; ?>
+<!---->
+<?php
+//$page = $this->params()->fromQuery('page', 1);
+//$property = $this->params()->fromQuery('property');
+//$subjectValues = $item->displaySubjectValues($page, 25, $property);
+//?>
+<?php //if ($subjectValues): ?>
+<!--<div id="item-linked">-->
+<!--    <h3>--><?php //echo $this->translate('Linked resources'); ?><!--</h3>-->
+<!--    --><?php //echo $subjectValues; ?>
+<!--</div>-->
+<?php //endif; ?>
+<!---->
+<?php //$this->trigger('view.show.after'); ?>
+<!---->
+<div class="clearfix">&nbsp;</div>
+
+<script src="<?php echo $this->assetUrl('js/lg-video.min.js'); ?>" type="text/javascript"></script>
+<script src="<?php echo $this->assetUrl('js/lg-zoom.js'); ?>" type="text/javascript"></script>
+
+
+
+<div class="social-network-relationship">
+    <div class="slidecontainer">
+        縮小<input type="range" min="5" max="30" value="10"  id="SvgRange">放大
+    </div>
+    <a id="searchnode" type="button" class="btn btn-outline-secondary btn-sm" value="" style="" href="">搜尋</a>
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <svg style="width:100%;height:95%;"></svg>
+    
+</div>
+<div class="meta-properties">
+    <?php echo $item->displayValues(); ?>
+</div>
+<div class="clearfix">&nbsp;</div>
+
+<div class="property">
+    <?php $itemSets = $item->itemSets(); ?>
+    <?php if (count($itemSets) > 0): ?>
+        <h4><?php echo $this->translate('Item sets'); ?></h4>
+        <?php foreach ($item->itemSets() as $itemSet): ?>
+            <div class="value"><a href="<?php echo $escape($itemSet->url()); ?>"><?php echo $itemSet->displayTitle(); ?></a></div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>
+
+<div class="clearfix">&nbsp;</div>
+
+<hr />
+<?php if (count($otherMedia) > 0): ?>
+<div id="other-media" class="property">
+    <h4><?php echo $this->translate('Other Media'); ?></h4>
+    <div class="row">
+        <?php foreach($otherMedia as $media): ?>
+            <div class="col-md-2 value">
+                <a href="<?php echo $media->siteUrl(); ?>" title="<?php echo $media->displayTitle(); ?>">
+                    <img src="<?php echo $escape($media->thumbnailUrl('medium')); ?>" alt="">
+                </a>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+<?php endif; ?>
+<div class="clearfix">&nbsp;</div>
+
+
+<?php //if (!$embedMedia && $itemMedia): ?>
+<!--    <div class="media-list">-->
+<!--        --><?php //foreach ($itemMedia as $media): ?>
+<!--            --><?php //echo $media->linkPretty(); ?>
+<!--        --><?php //endforeach; ?>
+<!--    </div>-->
+<?php //endif; ?>
+
+<?php
+$page = $this->params()->fromQuery('page', 1);
+$property = $this->params()->fromQuery('property');
+$subjectValues = $item->displaySubjectValues($page, 25, $property);
+?>
+<?php if ($subjectValues): ?>
+    <div id="item-linked">
+        <h3><?php echo $this->translate('Linked resources'); ?></h3>
+        <?php echo $subjectValues; ?>
+    </div>
+<?php endif; ?>
+
+
+<div class="clearfix">&nbsp;</div>
+
+<script>
+    jQuery(document).ready(function() {
+        console.log('send API');
+        document.getElementById("SvgRange").disabled = true;
+        var itemId = <?php echo $id;?>;
+        $.get(
+            'http://omeka-dev.ccstw.nccu.edu.tw:7065/getrelationship/' + itemId,
+            {},
+            function(data){
+                $('.spinner-border').css('display','none');
+                console.log(data);
+                var dataObj = setNodeData(data);
+                console.log(dataObj);
+                starGraph(dataObj);
+            }
+            
+        );
+
+    });
+</script>
+
+
+<style>
+
+.link { stroke: #999; stroke-opacity: .6; stroke-width: 1px; }
+    
+.edgelabel textPath{
+    font-size: 18px;
+}
+
+text {
+  font-family: sans-serif;
+  font-size: 28px;
+}
+
+.social-network-relationship{
+    position: relative;
+}
+
+#searchnode{
+    display:none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#SvgRange{
+    background: #D4D4D4;
+}
+
+#SvgRange::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    position: relative;    /* 設為相對位置，為了前後區塊的絕對位置而設定 */
+    width:4px;
+    height:15px;
+    border-radius:0%;
+    background: #A1A1A1;
+}
+
+#SvgRange::-webkit-slider-thumb:before,
+#SvgRange::-webkit-slider-thumb:after
+{
+    height:2px !important;
+    background: #D4D4D4;
+}
+
+
+</style>
