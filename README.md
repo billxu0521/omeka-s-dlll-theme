@@ -1,2 +1,2 @@
-# byui-spc
-A theme for Omeka S
+# omeka-s-dlll-theme
+A theme fo dlll, and CCSTW
